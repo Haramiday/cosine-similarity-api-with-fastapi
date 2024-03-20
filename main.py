@@ -26,7 +26,7 @@ def read_root():
 
 #Open ai
 from openai import OpenAI
-client = OpenAI(api_key = open_key) #"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")
+client = OpenAI(api_key = open_key) 
 
 def get_embedding(text, model="text-embedding-3-large"):
    text = text.replace("\n", " ")
