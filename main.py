@@ -36,6 +36,11 @@ def generate_feedback(question, teacher, student, score, total):
   prompt = "Given the question: {}, the teacher answer was {} while the my answer was {}. I scored {} over {} with reference to the teacher's question and answer. In one paragraph, tell me why the teacher gave me that score".format(question, teacher, student, score, total)
   response = client.chat.completions.create(
   model="gpt-3.5-turbo-1106",
+  temperature=0.2,  # Lower temperature for less randomness
+  top_p=1,          # Full range of token probabilities
+  max_tokens=150,   # Adjust based on your needs
+  n=1,              # Number of completions to generate
+  stop=None,
   messages=[
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": prompt}
