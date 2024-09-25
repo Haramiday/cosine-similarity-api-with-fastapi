@@ -33,7 +33,7 @@ def get_embedding(text, model="text-embedding-3-large"):
    return client.embeddings.create(input = [text], model=model).data[0].embedding
 
 def generate_feedback(question, teacher, student, score, total):
-  prompt = "Given the question: {}, the teacher answer was {} while the my answer was {}. I scored {} over {} with reference to the teacher's question and answer. In one paragraph, tell me why the teacher gave me that score".format(question, teacher, student, score, total)
+  prompt = "Given the question: {}, my lecturer's answer was {} while the my answer was {}. I scored {} over {} with reference to my lecturer's question and answer. In one paragraph, tell me why my lecturer gave me that score".format(question, teacher, student, score, total)
   response = client.chat.completions.create(
   model="gpt-3.5-turbo-1106",
   temperature=0.2,  # Lower temperature for less randomness
